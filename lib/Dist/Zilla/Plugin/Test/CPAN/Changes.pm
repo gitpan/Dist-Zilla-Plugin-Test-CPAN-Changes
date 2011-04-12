@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::Test::CPAN::Changes;
 use strict;
 use warnings;
 # ABSTRACT: release tests for your changelog
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
@@ -44,7 +44,7 @@ Dist::Zilla::Plugin::Test::CPAN::Changes - release tests for your changelog
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -82,15 +82,15 @@ The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
 site near you, or see L<http://search.cpan.org/dist/Dist-Zilla-Plugin-Test-CPAN-Changes/>.
 
-The development version lives at L<http://github.com/doherty/Dist-Zilla-Plugin-ChangesTests>
-and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-ChangesTests.git>.
+The development version lives at L<http://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes>
+and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git>.
 Instead of sending patches, please fork this project using the standard
 git and github infrastructure.
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/doherty/Dist-Zilla-Plugin-ChangesTests>
-and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-ChangesTests.git>
+The development version is on github at L<http://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes>
+and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git>
 
 =head1 BUGS AND LIMITATIONS
 
