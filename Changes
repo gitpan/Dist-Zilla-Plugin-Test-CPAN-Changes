@@ -1,5 +1,9 @@
 Revision history for Perl module Dist-Zilla-Plugin-Test-CPAN-Changes
 
+0.004     2011-04-20
+    * Added tests
+    * Removed version requirement for File::Find
+
 0.003     2011-04-12
     * New repository location
 

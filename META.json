@@ -1,0 +1,57 @@
+{
+   "abstract" : "release tests for your changelog",
+   "author" : [
+      "Mike Doherty <doherty@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Dist-Zilla-Plugin-Test-CPAN-Changes",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.31"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Dist::Zilla::Plugin::InlineFiles" : 0,
+            "Dist::Zilla::Role::FileMunger" : 0,
+            "Moose" : 0,
+            "perl" : "5.006"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Find" : 0,
+            "File::Path" : 0,
+            "File::Temp" : 0,
+            "Moose::Autobox" : 0,
+            "Test::CPAN::Changes" : 0,
+            "Test::DZil" : 0,
+            "Test::More" : "0.88",
+            "autodie" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues"
+      },
+      "homepage" : "http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git",
+         "web" : "https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes"
+      }
+   },
+   "version" : "0.004"
+}
+

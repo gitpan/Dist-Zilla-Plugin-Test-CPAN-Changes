@@ -4,8 +4,13 @@ author:
   - 'Mike Doherty <doherty@cpan.org>'
 build_requires:
   File::Find: 0
+  File::Path: 0
   File::Temp: 0
-  Test::More: 0
+  Moose::Autobox: 0
+  Test::CPAN::Changes: 0
+  Test::DZil: 0
+  Test::More: 0.88
+  autodie: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
@@ -21,6 +26,7 @@ requires:
   Moose: 0
   perl: 5.006
 resources:
-  bugtracker: http://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues
+  bugtracker: https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues
+  homepage: http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes
   repository: git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git
-version: 0.003
+version: 0.004
