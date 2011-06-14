@@ -1,5 +1,10 @@
 Revision history for Perl module Dist-Zilla-Plugin-Test-CPAN-Changes
 
+0.005     2011-06-14
+    * Fix prerequisite that wasn't getting picked up on some smokers
+    * Fix synopsis [xenoterracide]
+    * Fix documentation [xenoterracide]
+
 0.004     2011-04-20
     * Added tests
     * Removed version requirement for File::Find

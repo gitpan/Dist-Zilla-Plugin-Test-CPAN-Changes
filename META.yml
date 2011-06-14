@@ -9,18 +9,19 @@ build_requires:
   Moose::Autobox: 0
   Test::CPAN::Changes: 0
   Test::DZil: 0
-  Test::More: 0.88
+  Test::More: 0.94
   autodie: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
+generated_by: 'Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110930'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-Plugin-Test-CPAN-Changes
 requires:
+  Dist::Zilla: 4
   Dist::Zilla::Plugin::InlineFiles: 0
   Dist::Zilla::Role::FileMunger: 0
   Moose: 0
@@ -29,4 +30,4 @@ resources:
   bugtracker: https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues
   homepage: http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes
   repository: git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git
-version: 0.004
+version: 0.005

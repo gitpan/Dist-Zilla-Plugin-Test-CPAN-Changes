@@ -4,7 +4,7 @@
       "Mike Doherty <doherty@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930",
+   "generated_by" : "Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110930",
    "license" : [
       "perl_5"
    ],
@@ -16,11 +16,12 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.31"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "runtime" : {
          "requires" : {
+            "Dist::Zilla" : "4",
             "Dist::Zilla::Plugin::InlineFiles" : 0,
             "Dist::Zilla::Role::FileMunger" : 0,
             "Moose" : 0,
@@ -35,7 +36,7 @@
             "Moose::Autobox" : 0,
             "Test::CPAN::Changes" : 0,
             "Test::DZil" : 0,
-            "Test::More" : "0.88",
+            "Test::More" : "0.94",
             "autodie" : 0
          }
       }
@@ -52,6 +53,6 @@
          "web" : "https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes"
       }
    },
-   "version" : "0.004"
+   "version" : "0.005"
 }
 

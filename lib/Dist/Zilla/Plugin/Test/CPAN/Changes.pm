@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::Test::CPAN::Changes;
 use strict;
 use warnings;
 # ABSTRACT: release tests for your changelog
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
@@ -14,6 +14,7 @@ has changelog => (
     isa     => 'Str',
     predicate => 'has_changelog',
 );
+
 
 sub munge_file {
     my $self = shift;
@@ -34,7 +35,6 @@ no Moose;
 
 
 
-
 =pod
 
 =encoding utf-8
@@ -45,13 +45,13 @@ Dist::Zilla::Plugin::Test::CPAN::Changes - release tests for your changelog
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
 In C<dist.ini>:
 
-    [ChangesTests]
+    [Test::CPAN::Changes]
 
 =head1 DESCRIPTION
 
@@ -62,23 +62,20 @@ following file:
 
 See L<Test::CPAN::Changes> for what this test does.
 
-You should use this plugin instead of L<Dist::Zilla::Plugin::CPANChangesTests>
-because this one lets you cheat on the filename.
-
 =head2 Alternate changelog filenames
 
 L<CPAN::Changes::Spec> specifies that the changelog will be called 'Changes' -
 if you want to use a different filename for whatever reason, do:
 
-    [ChangesTests]
+    [Test::CPAN::Changes]
     changelog = CHANGES
 
 and that file will be tested instead.
 
-=for Pod::Coverage munge_file
-
 =for test_synopsis 1;
 __END__
+
+=for Pod::Coverage munge_file
 
 =head1 AVAILABILITY
 
