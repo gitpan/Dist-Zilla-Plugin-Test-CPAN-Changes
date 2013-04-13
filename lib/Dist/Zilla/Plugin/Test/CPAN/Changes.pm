@@ -2,11 +2,12 @@ package Dist::Zilla::Plugin::Test::CPAN::Changes;
 use strict;
 use warnings;
 # ABSTRACT: release tests for your changelog
-our $VERSION = '0.005'; # VERSION
+our $VERSION = '0.006'; # VERSION
 
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with    'Dist::Zilla::Role::FileMunger';
+with    'Dist::Zilla::Role::PrereqSource';
 
 
 has changelog => (
@@ -30,10 +31,29 @@ sub munge_file {
     return;
 }
 
+# Register the release test prereq as a "develop requires"
+# so it will be listed in "dzil listdeps --author"
+sub register_prereqs {
+  my ($self) = @_;
+
+  $self->zilla->register_prereqs(
+    {
+      type  => 'requires',
+      phase => 'develop',
+    },
+    # Latest known release of Test::CPAN::Changes
+    # because CPAN authors must use the latest if we want
+    # this check to be relevant
+    'Test::CPAN::Changes'     => '0.19',
+  );
+}
+
+
+
+
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
-
-
 
 =pod
 
@@ -45,7 +65,7 @@ Dist::Zilla::Plugin::Test::CPAN::Changes - release tests for your changelog
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -75,7 +95,7 @@ and that file will be tested instead.
 =for test_synopsis 1;
 __END__
 
-=for Pod::Coverage munge_file
+=for Pod::Coverage munge_file register_prereqs
 
 =head1 AVAILABILITY
 
@@ -83,12 +103,7 @@ The project homepage is L<http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Chang
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see L<http://search.cpan.org/dist/Dist-Zilla-Plugin-Test-CPAN-Changes/>.
-
-The development version lives at L<http://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes>
-and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git>.
-Instead of sending patches, please fork this project using the standard
-git and github infrastructure.
+site near you, or see L<https://metacpan.org/module/Dist::Zilla::Plugin::Test::CPAN::Changes/>.
 
 =head1 SOURCE
 
@@ -97,10 +112,8 @@ and may be cloned from L<git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Ch
 
 =head1 BUGS AND LIMITATIONS
 
-No bugs have been reported.
-
-Please report any bugs or feature requests through the web interface at
-L<https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues>.
+You can make new bug reports, and view existing ones, through the
+web interface at L<https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues>.
 
 =head1 AUTHOR
 
@@ -115,13 +128,11 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __DATA__
 __[ xt/release/cpan-changes.t ]__
 #!perl
 
 use Test::More;
-eval 'use Test::CPAN::Changes';
-plan skip_all => 'Test::CPAN::Changes required for this test' if $@;
+use_ok('Test::CPAN::Changes');
 changes_ok();
 done_testing();

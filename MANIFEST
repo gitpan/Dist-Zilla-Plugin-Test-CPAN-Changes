@@ -1,3 +1,4 @@
+Build.PL
 Changes
 LICENSE
 MANIFEST
@@ -5,14 +6,15 @@ META.json
 META.yml
 Makefile.PL
 README
+README.mkdn
 lib/Dist/Zilla/Plugin/Test/CPAN/Changes.pm
 t/00-compile.t
 t/01-changes.t
 xt/author/critic.t
+xt/author/test-eol.t
 xt/release/cpan-changes.t
 xt/release/dist-manifest.t
 xt/release/distmeta.t
-xt/release/eol.t
 xt/release/kwalitee.t
 xt/release/meta-json.t
 xt/release/minimum-version.t
