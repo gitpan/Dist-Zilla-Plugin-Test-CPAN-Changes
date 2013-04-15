@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::Test::CPAN::Changes;
 use strict;
 use warnings;
 # ABSTRACT: release tests for your changelog
-our $VERSION = '0.006'; # VERSION
+our $VERSION = '0.007'; # VERSION
 
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
@@ -65,7 +65,7 @@ Dist::Zilla::Plugin::Test::CPAN::Changes - release tests for your changelog
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -99,7 +99,7 @@ __END__
 
 =head1 AVAILABILITY
 
-The project homepage is L<http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes>.
+The project homepage is L<http://metacpan.org/release/Dist-Zilla-Plugin-Test-CPAN-Changes/>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
@@ -132,7 +132,9 @@ __DATA__
 __[ xt/release/cpan-changes.t ]__
 #!perl
 
-use Test::More;
+use Test::More tests => 2;
 use_ok('Test::CPAN::Changes');
-changes_ok();
+subtest 'changes_ok' => sub {
+    changes_ok();
+};
 done_testing();

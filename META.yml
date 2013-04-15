@@ -38,6 +38,6 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues
-  homepage: http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes
+  homepage: http://metacpan.org/release/Dist-Zilla-Plugin-Test-CPAN-Changes/
   repository: git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git
-version: 0.006
+version: 0.007

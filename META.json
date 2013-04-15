@@ -71,13 +71,13 @@
       "bugtracker" : {
          "web" : "https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues"
       },
-      "homepage" : "http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Changes",
+      "homepage" : "http://metacpan.org/release/Dist-Zilla-Plugin-Test-CPAN-Changes/",
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git",
          "web" : "https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes"
       }
    },
-   "version" : "0.006"
+   "version" : "0.007"
 }
 
