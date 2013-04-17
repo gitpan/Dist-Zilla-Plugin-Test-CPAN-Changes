@@ -2,33 +2,40 @@ package Dist::Zilla::Plugin::Test::CPAN::Changes;
 use strict;
 use warnings;
 # ABSTRACT: release tests for your changelog
-our $VERSION = '0.007'; # VERSION
+our $VERSION = '0.008'; # VERSION
 
 use Moose;
-extends 'Dist::Zilla::Plugin::InlineFiles';
-with    'Dist::Zilla::Role::FileMunger';
-with    'Dist::Zilla::Role::PrereqSource';
+use Data::Section -setup;
+with
+    'Dist::Zilla::Role::FileGatherer',
+    'Dist::Zilla::Role::PrereqSource';
 
 
 has changelog => (
     is      => 'ro',
     isa     => 'Str',
     predicate => 'has_changelog',
+    default => 'Changes',
 );
 
 
-sub munge_file {
+sub gather_files {
     my $self = shift;
-    my $file = shift;
-    return unless $file->name eq 'xt/release/cpan-changes.t';
 
-    if ($self->has_changelog) {
-        my $content = $file->content;
-        my $changelog = $self->changelog;
-        $content =~ s{\Qchanges_ok();\E}{changes_file_ok('$changelog');};
-        $file->content($content);
+    require Dist::Zilla::File::InMemory;
+
+    for my $file (qw( xt/release/cpan-changes.t )){
+        my $content = ${$self->section_data($file)};
+
+        my $changes_filename = $self->changelog;
+
+        $content =~ s/CHANGESFILENAME/$changes_filename/;
+
+        $self->add_file( Dist::Zilla::File::InMemory->new(
+            name => $file,
+            content => $content,
+        ));
     }
-    return;
 }
 
 # Register the release test prereq as a "develop requires"
@@ -65,7 +72,7 @@ Dist::Zilla::Plugin::Test::CPAN::Changes - release tests for your changelog
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
@@ -95,7 +102,7 @@ and that file will be tested instead.
 =for test_synopsis 1;
 __END__
 
-=for Pod::Coverage munge_file register_prereqs
+=for Pod::Coverage gather_files register_prereqs
 
 =head1 AVAILABILITY
 
@@ -132,9 +139,12 @@ __DATA__
 __[ xt/release/cpan-changes.t ]__
 #!perl
 
-use Test::More tests => 2;
+use strict;
+use warnings;
+
+use Test::More 0.96 tests => 2;
 use_ok('Test::CPAN::Changes');
 subtest 'changes_ok' => sub {
-    changes_ok();
+    changes_file_ok('CHANGESFILENAME');
 };
 done_testing();

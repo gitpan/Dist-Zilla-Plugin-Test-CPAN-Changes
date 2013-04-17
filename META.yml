@@ -27,9 +27,10 @@ no_index:
     - inc
     - examples
 requires:
+  Data::Section: 0
   Dist::Zilla: 4
-  Dist::Zilla::Plugin::InlineFiles: 0
-  Dist::Zilla::Role::FileMunger: 0
+  Dist::Zilla::File::InMemory: 0
+  Dist::Zilla::Role::FileGatherer: 0
   Dist::Zilla::Role::PrereqSource: 0
   Moose: 0
   Test::CPAN::Changes: 0.19
@@ -40,4 +41,4 @@ resources:
   bugtracker: https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes/issues
   homepage: http://metacpan.org/release/Dist-Zilla-Plugin-Test-CPAN-Changes/
   repository: git://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Changes.git
-version: 0.007
+version: 0.008

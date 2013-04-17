@@ -1,5 +1,9 @@
 Revision history for Perl module Dist-Zilla-Plugin-Test-CPAN-Changes
 
+0.008     2013-04-17
+    * eliminate the FileMunger stage by modifying the file as it is created
+      (Karen Etheridge)
+
 0.007     2013-04-14
     * Run changes_ok in a subtest for ease of planning [mjgardner; GH#3]
 
